@@ -1,0 +1,28 @@
+/* src/styles/result.css */
+.result-card {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  border-top: 4px solid #007bff;
+}
+
+.result-placeholder {
+  color: #adb5bd;
+  font-style: italic;
+}
+
+.result-header {
+  font-size: 1rem;
+  color: #6c757d;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+}
+
+.result-price {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2c3e50;
+}
