@@ -1,446 +1,93 @@
-# Laptop Price Prediction System
-
-A Machine Learning based web application that predicts the estimated price of a used laptop based on its specifications.
-
-This project is built using Python, Scikit-Learn, FastAPI and React.js.
-
----
-
-## Tech Stack
-
-### Machine Learning
-- Python
-- Pandas
-- NumPy
-- Scikit-Learn
-- Joblib
-
-### Backend
-- FastAPI
-- Uvicorn
-
-### Frontend
-- React.js
-- Axios
-- CSS
-
----
-
-# Project Workflow
-
-Dataset
-↓
-
-Data Cleaning
-
-↓
-
-Exploratory Data Analysis (EDA)
-
-↓
-
-Feature Engineering
-
-↓
-
-Data Preprocessing
-
-↓
-
-Train-Test Split
-
-↓
-
-Linear Regression Model
-
-↓
-
-Pipeline
-
-↓
-
-Model Saved (.pkl)
-
-↓
-
-FastAPI Backend
-
-↓
-
-React Frontend
-
-↓
-
-Laptop Price Prediction
-
----
-
-# Project Structure
-
-```
+💻 Used Laptop Price Prediction System (AI Dashboard)
+A full-stack, production-grade Machine Learning application that predicts the resale value of used laptops. This system features a professional Admin Dashboard, JWT Authentication, and Real-time Analytics.
+🚀 Overview
+This project transition from a simple ML script to a complete Enterprise-level application. It uses a Linear Regression model to analyze 14+ laptop specifications and provide price estimates. The system is secured with JWT tokens and features a modern React-based Dashboard.
+✨ Key Features
+✅ Advanced ML Pipeline: From raw data cleaning to a serialized Scikit-Learn pipeline.
+✅ Authentication System: Secure Signup and Login using FastAPI, SQLAlchemy, and Bcrypt hashing.
+✅ JWT Security: Protected API endpoints and frontend routes using JSON Web Tokens and Axios Interceptors.
+✅ Admin Dashboard: Real-time stats showing total predictions, average prices, and active users.
+✅ Data Visualization: Interactive charts built with Recharts for market trend analysis.
+✅ Prediction Logs: Persistent history of recent queries and results.
+✅ Responsive UI: Modern "AI Dashboard" theme with a fixed sidebar and professional grid layout.
+🛠️ Tech Stack
+Machine Learning & Data Science
+Language: Python
+Libraries: Pandas, NumPy, Scikit-Learn, Matplotlib
+Serialization: Joblib
+Backend (API)
+Framework: FastAPI
+Server: Uvicorn
+Database: SQLite (SQLAlchemy ORM)
+Security: JWT (python-jose), Bcrypt (passlib)
+Frontend (UI)
+Framework: React.js (Vite)
+Routing: React Router DOM
+Charts: Recharts
+API Client: Axios (with Interceptors)
+Styling: Pure CSS (Modern Grid/Flexbox)
+📂 Project Structure
+code
+Text
 LaptopPrice-AI/
-
-analysis/
-    analytics.py
-
-backend/
-    main.py
-    model_loader.py
-    requirements.txt
-
-dataset/
-    data.csv
-    cleaned_data.csv
-    final_data.csv
-
-frontend/
-    src/
-    public/
-
-ml/
-    data_cleaning.py
-    eda.py
-    feature_engineering.py
-    preprocessing.py
-    train_test_split.py
-    model_training.py
-    save_model.py
-    predict.py
-
-models/
-    laptop_price_model.pkl
-
-reports/
-```
-
----
-
-# Features
-
-- Dataset Analysis
-- Data Cleaning
-- Exploratory Data Analysis
-- Feature Engineering
-- Data Preprocessing
-- Train-Test Split
-- Linear Regression Model
-- Model Pipeline
-- Model Saving
-- FastAPI REST API
-- React Frontend
-- Real-time Laptop Price Prediction
-
----
-
-# Machine Learning Pipeline
-
-## Phase 1 - Dataset Analysis
-
-The dataset is analyzed to understand:
-
-- Number of rows
-- Number of columns
-- Data types
-- Missing values
-- Duplicate values
-- Numerical features
-- Categorical features
-
-File:
-
-```
-analysis/analytics.py
-```
-
----
-
-## Phase 2 - Data Cleaning
-
-Performed:
-
-- Removed unnecessary columns
-- Checked missing values
-- Checked duplicate rows
-- Saved cleaned dataset
-
-File:
-
-```
-ml/data_cleaning.py
-```
-
----
-
-## Phase 3 - Exploratory Data Analysis
-
-Generated graphs:
-
-- Price Distribution
-- Brand vs Price
-- Warranty vs Price
-- Correlation Heatmap
-
-File:
-
-```
-ml/eda.py
-```
-
----
-
-## Phase 4 - Feature Engineering
-
-Created additional features for better prediction.
-
-Example:
-
-```
-total_pixels =
-resolution_width × resolution_height
-```
-
-File:
-
-```
-ml/feature_engineering.py
-```
-
----
-
-## Phase 5 - Data Preprocessing
-
-Performed:
-
-- Feature Selection
-- Standard Scaling
-- One Hot Encoding
-- Column Transformer
-
-File:
-
-```
-ml/preprocessing.py
-```
-
----
-
-## Phase 6 - Train Test Split
-
-Dataset split into:
-
-- Training Data
-- Testing Data
-
-File:
-
-```
-ml/train_test_split.py
-```
-
----
-
-## Phase 7 - Model Training
-
-Algorithm Used:
-
-```
-Linear Regression
-```
-
-Model trained using Scikit-Learn Pipeline.
-
-File:
-
-```
-ml/model_training.py
-```
-
----
-
-## Phase 8 - Model Saving
-
-The trained model is saved using Joblib.
-
-Generated file:
-
-```
-models/laptop_price_model.pkl
-```
-
----
-
-## Phase 9 - Backend
-
-FastAPI is used for serving the Machine Learning model.
-
-Endpoints
-
-GET /
-
-Returns API status.
-
-POST /predict
-
-Accepts laptop specifications and returns predicted laptop price.
-
-Files
-
-```
-backend/main.py
-
-backend/model_loader.py
-```
-
----
-
-## Phase 10 - Frontend
-
-React.js frontend allows the user to:
-
-- Enter laptop specifications
-- Send data to FastAPI
-- Receive prediction
-- Display estimated laptop price
-
----
-
-# Sample Prediction
-
-Input
-
-Brand
-
-HP
-
-Processor
-
-Intel Core i5
-
-RAM
-
-16 GB
-
-Storage
-
-512 GB SSD
-
-GPU
-
-Intel Iris Xe
-
-Display
-
-15.6 inch
-
-Operating System
-
-Windows 11
-
-Warranty
-
-1 Year
-
-Specification Rating
-
-82
-
-Output
-
-```
-Estimated Laptop Price
-
-₹85031
-```
-
----
-
-# How to Run the Project
-
-## Clone Repository
-
-```
-git clone https://github.com/YOUR_USERNAME/LaptopPrice-AI.git
-
+├── analysis/               # Initial Dataset Analysis scripts
+├── backend/                # FastAPI Server
+│   ├── main.py             # API Routes & Logic
+│   ├── database.py         # SQLAlchemy Models & SQLite Config
+│   ├── auth_utils.py       # JWT & Hashing helpers
+│   ├── model_loader.py     # ML Model Loader
+│   └── schemas.py          # Pydantic Data Models
+├── dataset/                # Raw, Cleaned, and Final CSVs
+├── frontend/               # React Dashboard
+│   ├── src/
+│   │   ├── components/     # Navbar, Sidebar, ResultCard
+│   │   ├── pages/          # Login, Signup, Dashboard, Predict, Charts
+│   │   ├── services/       # Axios API Interceptor
+│   │   └── styles/         # Modular CSS files
+├── ml/                     # ML Development Lifecycle scripts
+├── models/                 # Trained .pkl files
+└── reports/                # Project Analysis reports
+📈 Machine Learning Pipeline
+Analysis: Deep dive into data types, missing values, and correlations.
+Cleaning: Dropping irrelevant features and handling duplicates.
+EDA: Visualizing price distributions and brand impacts.
+Feature Engineering: Extracting numerical values from strings (RAM/ROM) and creating total_pixels.
+Preprocessing: Robust scaling and One-Hot encoding using ColumnTransformer.
+Training: Linear Regression model optimized for laptop price trends.
+⚙️ Installation & Setup
+1. Clone the Project
+code
+Bash
+git clone https://github.com/sahilsaiyed-oss/LaptopPrice-AI.git
 cd LaptopPrice-AI
-```
-
----
-
-## Install Python Libraries
-
-```
-pip install pandas numpy matplotlib scikit-learn fastapi uvicorn joblib
-```
-
----
-
-## Backend
-
-```
+2. Backend Setup
+code
+Bash
 cd backend
-
+pip install -r requirements.txt
 uvicorn main:app --reload
-```
-
-Runs on
-
-```
-http://127.0.0.1:8000
-```
-
-Swagger API
-
-```
-http://127.0.0.1:8000/docs
-```
-
----
-
-## Frontend
-
-Open another terminal
-
-```
-cd frontend
-
+Backend runs on: http://127.0.0.1:8000
+3. Frontend Setup
+code
+Bash
+cd ../frontend
 npm install
-
-npm install axios
-
 npm run dev
-```
-
-Runs on
-
-```
-http://localhost:5173
-```
-
----
-
-# Model Used
-
-- Linear Regression
-
----
-
-# Future Improvements
-
-- Random Forest Regression
-- XGBoost
-- Better UI
-- Model Accuracy Improvement
-- Docker Deployment
-- Cloud Deployment
-- User Authentication
-- Database Integration
-
----
-
-# Author
-
+Frontend runs on: http://localhost:5173
+🔒 Security Implementation
+Password Hashing: Uses bcrypt to salt and hash user passwords before saving to SQLite.
+Route Guards: React ProtectedRoute component prevents access to the dashboard without a valid token.
+Axios Interceptors: Automatically attaches the Authorization: Bearer <token> header to all ML and Dashboard requests.
+📊 Sample Prediction Result
+Feature	Value
+Brand	Dell
+RAM	16 GB
+Processor	Intel Core i7
+Storage	1 TB SSD
+Prediction	₹94,221
+👨‍💻 Author
 Sahil Saiyed
-
 Computer Engineering Student
-
-Python | Machine Learning | FastAPI | React.js
+GitHub | LinkedIn
+📝 License
+This project is part of an Internship program. Feel free to use it for educational purposes.

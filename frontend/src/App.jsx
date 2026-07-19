@@ -1,24 +1,124 @@
-// src/App.jsx
-import React, { useState } from 'react';
-import Header from './components/Header';
-import PredictionForm from './components/PredictionForm';
-import ResultCard from './components/ResultCard';
-import './App.css';
+import { 
+  BrowserRouter, 
+  Routes, 
+  Route, 
+  Navigate 
+} from "react-router-dom";
+
+
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+
+import Dashboard from "./pages/Dashboard";
+import Prediction from "./pages/Prediction";
+import Charts from "./pages/Charts";
+import Logs from "./pages/Logs";
+
+
+import ProtectedRoute from "./components/ProtectedRoute";
+import Layout from "./components/Layout";
+
+
 
 function App() {
-  // Shared states to communicate between Form and ResultCard
-  const [prediction, setPrediction] = useState(null);
-  const [loading, setLoading] = useState(false);
+
 
   return (
-    <div className="main-container">
-      <Header />
-      {/* Pass functions to set state as props */}
-      <PredictionForm setPrediction={setPrediction} setLoading={setLoading} />
-      {/* Pass values to display as props */}
-      <ResultCard prediction={prediction} loading={loading} />
-    </div>
+
+    <BrowserRouter>
+
+
+      <Routes>
+
+
+        {/* Public Routes */}
+
+        <Route 
+          path="/" 
+          element={<Navigate to="/login" />} 
+        />
+
+
+        <Route 
+          path="/login" 
+          element={<Login />} 
+        />
+
+
+        <Route 
+          path="/signup" 
+          element={<Signup />} 
+        />
+
+
+
+        {/* Protected Routes */}
+
+
+        <Route
+
+          element={
+
+            <ProtectedRoute>
+
+              <Layout />
+
+            </ProtectedRoute>
+
+          }
+
+        >
+
+
+          <Route 
+            path="/dashboard" 
+            element={<Dashboard />} 
+          />
+
+
+          <Route 
+            path="/predict" 
+            element={<Prediction />} 
+          />
+
+
+          <Route 
+            path="/charts" 
+            element={<Charts />} 
+          />
+
+
+          <Route 
+            path="/logs" 
+            element={<Logs />} 
+          />
+
+
+        </Route>
+
+
+
+        {/* Unknown Route */}
+
+        <Route
+
+          path="*"
+
+          element={
+            <Navigate to="/dashboard" />
+          }
+
+        />
+
+
+      </Routes>
+
+
+    </BrowserRouter>
+
   );
+
 }
+
 
 export default App;
